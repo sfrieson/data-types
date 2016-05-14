@@ -10,7 +10,7 @@ var matrix = function(width, height){
   return matr;
 };
 
-matrix.prototype= Object.create(Array.prototype);
+matrix.prototype = Object.create(Array.prototype);
 
 matrix.prototype.traverse = function(fn, options){
   var x, y, cell,
@@ -76,7 +76,7 @@ matrix.prototype.traverse = function(fn, options){
       if(typeof opt.row.end !== "number") opt.row.end = this[y].length;
       // console.log("row:",opt.row);
       loop[opt.row.comp](opt.row.start, opt.row.end, opt.row.inc,
-        function(x){fn(this[y][x], y, x);}.bind(this)); //body of inner
+        function(x){fn(this[y][x], y, x, this);}.bind(this)); //body of inner
   }.bind(this));
 };
 
