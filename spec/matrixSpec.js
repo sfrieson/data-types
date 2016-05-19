@@ -86,3 +86,8 @@ describe("Matrix.column()", function(){
     expect(mat.column(3)[3]).toEqual(16);
   });
 });
+describe("Matrix.filter()", function(){
+  it("should return an array of index contents matching given comparison", function(){
+    expect(mat.filter(function(value){return value > 10;}).length).toEqual(6);
+  });
+});

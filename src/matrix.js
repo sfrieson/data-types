@@ -28,6 +28,7 @@ matrix.prototype.traverse = function(fn, options){
 };
 
 matrix.prototype.each = matrix.prototype.traverse;
+
 matrix.prototype.fill = function(arr){
   var currentIndex = 0;
   this.each(function(_cell, y, x){
@@ -45,7 +46,22 @@ matrix.prototype.column = function(index){
   {row:{start:index, end: index + 1, increment: 1}});
   return col;
 };
+
+matrix.prototype.filter = function(fn){
+  var matches = [];
+  this.each(function(cell){
+    if(fn(cell)) matches.push(cell);
+  });
+  return matches;
+};
 module.exports = matrix;
+
+
+
+
+
+
+
 
 function parseOptions (opts, matLength){
   var row = {}, col = {},
