@@ -1,4 +1,4 @@
-var Queue = (function(){
+var Queue = (function () {
   // IIFE for hidden dataStore
   var dataStore = [];
 
